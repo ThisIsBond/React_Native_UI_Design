@@ -1,0 +1,194 @@
+import { StatusBar } from 'expo-status-bar';
+import { ScrollView, StyleSheet, Text, View, Image, TextInput, TouchableWithoutFeedback, KeyboardAvoidingView, Alert } from 'react-native';
+import styles from './styles';
+
+// icons
+import { MaterialIcons } from '@expo/vector-icons';
+import AppLoading from 'expo-app-loading';
+import { useEffect, useState } from 'react';
+
+
+
+const Login = ({ navigation, ...props }) => {
+
+  const { loadFont, loadAssetsAsync } = props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [response, setResponse] = useState();
+
+  useEffect(() => {
+    loadAssetsAsync();
+  }, [])
+
+  async function handleLogin() {
+    // navigation.navigate('Home');
+
+    try {
+      await fetch('https://reqres.in/api/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      }).then(handleResponse)
+        .then((responseJson) => {
+          setResponse(responseJson)
+          navigation.navigate('Home')
+          setEmail(null);
+          setPassword(null);
+        })
+        .catch((e) =>
+          console.error(e)
+        )
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  if (!loadFont) {
+    return (
+      <AppLoading />
+    )
+  }
+
+  const handleResponse = response => {
+    if(response.ok){
+      return(response)
+      
+    }else{
+      // console.log(JSON.stringify(response));
+      throw new Error('Try again!')
+    }
+  }
+
+  return (
+    <KeyboardAvoidingView style={styles.container} contentContainerStyle={styles.containerContentStyle} >
+      <View style={styles.subContainer}>
+        <View style={styles.profileContainer}>
+          <Image source={require('../../assets/image.jpg')} style={{ flex: 1, width: undefined, height: undefined, borderRadius: 70 }} />
+          <View style={styles.profileEditContainer}>
+            <MaterialIcons name="edit" size={24} color="#4563E4" />
+          </View>
+        </View>
+        <View style={styles.userInputContainer}>
+          <Text style={styles.textInputLabel}>Email Address</Text>
+          <TextInput style={styles.textInputContainer} placeholder='Username' value={email} onChangeText={setEmail} />
+          <Text style={[styles.textInputLabel, { marginTop: 25 }]}>Password</Text>
+          <TextInput style={styles.textInputContainer} placeholder='Password' value={password} onChangeText={setPassword} secureTextEntry={true} />
+          <TouchableWithoutFeedback onPress={() =>
+            handleLogin()
+          }>
+            <Text style={styles.buttonContainer}>Login</Text>
+          </TouchableWithoutFeedback>
+        </View>
+      </View>
+    </KeyboardAvoidingView>
+  )
+}
+
+export default Login
+
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    backgroundColor: '#4563E4',
+    justifyContent: 'flex-end'
+  },
+
+  containerContentStyle: {
+    
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+
+  subContainer: {
+    width: '100%',
+    height: '85%',
+    backgroundColor: '#ffffff',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    alignItems: 'center'
+  },
+
+  userInputContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: '100%',
+    paddingTop:'25%'
+  },
+
+  profileContainer: {
+    flex: 1,
+    width: '32%',
+    height: 140,
+    borderRadius: 70,
+    position: 'absolute',
+    top: '-8%',
+    borderWidth: 2,
+    borderColor: '#ffffff',
+
+
+  },
+
+  profileEditContainer: {
+    flex: 1,
+    width: '30%',
+    height: '30%',
+    borderRadius: 20,
+    backgroundColor: '#ffffff',
+    position: 'absolute',
+    end: -5,
+    bottom: 10,
+    borderWidth: 1,
+    borderColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  textInputContainer: {
+    fontFamily: 'PoppinsMedium',
+    width: '90%',
+    height: 60,
+    margin: '2%',
+    borderRadius: 10,
+    backgroundColor: '#d9d9d9',
+    paddingLeft: 20,
+    fontSize: 18,
+    paddingRight: 20
+  },
+
+  textInputLabel: { 
+    alignSelf: 'flex-start', 
+    paddingLeft: '5%', 
+    fontFamily: 'PoppinsRegular', 
+    fontSize: 16,
+    color: '#416475'
+},
+
+    buttonContainer: {
+    fontFamily: 'PoppinsSemiBold',
+    width: '90%',
+    height: 60,
+    margin: '2%',
+    borderRadius: 30,
+    backgroundColor: '#4563E4',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    color: 'white',
+    fontSize: 20,
+  },
+});
+
+export default styles;
+
+

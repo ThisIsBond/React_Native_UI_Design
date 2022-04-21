@@ -10,9 +10,6 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 
 
-
-
-
 export default function App() {
 
 
@@ -28,16 +25,6 @@ export default function App() {
 
     try {
       await Font.loadAsync({
-        // Load a font `Inter` from a static resource
-        // 'InterBlack600': require("./assets/fonts/Inter-Black.ttf"),
-        // 'InterBold600': require("./assets/fonts/Inter-Bold.ttf"),
-        // 'InterExtraBold500': require("./assets/fonts/Inter-ExtraBold.ttf"),
-        // 'InterExtraLight500': require("./assets/fonts/Inter-ExtraLight.ttf"),
-        // 'InterLight400': require("./assets/fonts/Inter-Light.ttf"),
-        // 'InterMedium400': require("./assets/fonts/Inter-Medium.ttf"),
-        // 'InterRegular300': require("./assets/fonts/Inter-Regular.ttf"),
-        // 'InterSemiBold300': require("./assets/fonts/Inter-SemiBold.ttf"),
-        // 'InterThin200': require("./assets/fonts/Inter-Thin.ttf"),
 
         'InterRegular': require("./assets/fonts/Project/Inter-Regular.ttf"),
         'InterBold': require("./assets/fonts/Inter/Inter-Bold.ttf"),
@@ -66,7 +53,7 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'>
+        <Stack.Navigator initialRouteName='Login'>
           <Stack.Screen name='Login' options={{
             headerShown: false
           }}>

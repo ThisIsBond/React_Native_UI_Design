@@ -215,7 +215,7 @@ const Home = ({ navigation }) => {
                     <View style={{ width: '94%', height: 300, marginTop: 15, flex: 1, shadowColor: '#000', alignSelf: 'center', justifyContent: 'space-evenly' }}>
                         <View style={{ width: '100%', height: '22%', flexDirection: 'row' }}>
                             <View style={{ width: '17%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: '#e1f8f2', opacity: 1, alignItems: 'center', justifyContent: 'center' }}>
+                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: '#e1f8f2',alignItems: 'center', justifyContent: 'center' }}>
                                     <Text style={{ fontFamily: 'PoppinsSemiBold', fontSize: 28, color: '#00A676' }}>A</Text>
                                 </View>
                             </View>
@@ -232,7 +232,7 @@ const Home = ({ navigation }) => {
 
                         <View style={{ width: '100%', height: '22%', flexDirection: 'row', backgroundColor: '#ffffff' }}>
                             <View style={{ width: '17%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
+                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: '#e1f8f2', alignItems: 'center', justifyContent: 'center' }}>
                                     <Text style={{ fontFamily: 'PoppinsSemiBold', fontSize: 28, color: '#00A676' }}>A</Text>
                                 </View>
                             </View>
@@ -249,7 +249,7 @@ const Home = ({ navigation }) => {
 
                         <View style={{ width: '100%', height: '22%', flexDirection: 'row', backgroundColor: '#ffffff' }}>
                             <View style={{ width: '17%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
+                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: '#e1f8f2', alignItems: 'center', justifyContent: 'center' }}>
                                     <Text style={{ fontFamily: 'PoppinsSemiBold', fontSize: 28, color: '#00A676' }}>A</Text>
                                 </View>
                             </View>
@@ -266,7 +266,7 @@ const Home = ({ navigation }) => {
 
                         <View style={{ width: '100%', height: '22%', flexDirection: 'row', backgroundColor: '#ffffff' }}>
                             <View style={{ width: '17%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
+                                <View style={{ width: 45, height: 45, borderRadius: 40, backgroundColor: '#e1f8f2', alignItems: 'center', justifyContent: 'center' }}>
                                     <Text style={{ fontFamily: 'PoppinsSemiBold', fontSize: 28, color: '#00A676' }}>A</Text>
                                 </View>
                             </View>
